@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export function HeroBanner() {
 	return (
-		<section className="relative min-h-[70vh] overflow-hidden px-5 pb-14 pt-24 sm:px-6 sm:pb-16 sm:pt-28 md:min-h-[78vh] md:px-10 md:pb-28 md:pt-32">
+		<section className="relative min-h-[70vh] overflow-hidden px-5 pb-14 pt-32 sm:px-6 sm:pb-16 sm:pt-32 md:min-h-[78vh] md:px-10 md:pb-28 md:pt-36">
 			<div className="absolute inset-0 -z-20">
 				<Image
 					src="/images/home/hero.webp"
