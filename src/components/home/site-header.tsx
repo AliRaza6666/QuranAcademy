@@ -129,7 +129,7 @@ export function SiteHeader() {
             >
               <Menu className="h-6 w-6" strokeWidth={2} />
             </SheetTrigger>
-            <SheetContent side="right" className="bg-white/95 backdrop-blur-md">
+            <SheetContent side="right" className="w-[280px] sm:w-[350px] bg-white/95 backdrop-blur-md">
               <SheetHeader className="border-b border-black/5 pb-4">
                 <SheetTitle className="text-black font-bold uppercase tracking-tight text-sm font-montserrat">
                   Imam Ali Quran Academy
