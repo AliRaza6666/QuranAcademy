@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://imamaliquranacademy.com/sitemap.xml

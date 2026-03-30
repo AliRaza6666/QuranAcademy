@@ -1,0 +1,24 @@
+{
+  "tailwindCSS.experimental.configFile": "src/app/globals.css",
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className"
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "cn\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*)[\"'`]"
+    ],
+    [
+      "clsx\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*)[\"'`]"
+    ]
+  ],
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
+}
