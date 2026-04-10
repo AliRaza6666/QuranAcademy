@@ -1,117 +1,204 @@
 import React from "react";
-import { Check } from "lucide-react";
 import Link from "next/link";
 
-const plans = [
+const feeSections = [
   {
-    name: "Foundation",
-    price: "$45",
-    description: "Ideal for beginners starting their sacred journey.",
-    features: [
-      "2 Classes Per Week",
-      "One-on-One Sessions",
-      "Basic Tajweed Rules",
-      "Digital Study Materials",
-      "Progress Reports",
+    heading: "Weekday Classes (Monday - Friday)",
+    plans: [
+      {
+        title: "1 Day / Week",
+        subtitle: "4 Days / Month",
+        duration: "30 Minutes / Day",
+        price: "$30",
+        badge: "Basic",
+        buttonLabel: "Select Plan",
+        currencyBubbles: [
+          { label: "USD/CAD", value: "$30" },
+          { label: "AUD", value: "$30" },
+          { label: "UK", value: "£20" },
+          { label: "Europe", value: "€20" },
+        ],
+      },
+      {
+        title: "2 Days / Week",
+        subtitle: "8 Days / Month",
+        duration: "30 Minutes / Day",
+        price: "$35",
+        badge: "Standard",
+        buttonLabel: "Select Plan",
+        currencyBubbles: [
+          { label: "USD/CAD", value: "$35" },
+          { label: "AUD", value: "$35" },
+          { label: "UK", value: "£22" },
+          { label: "Europe", value: "€22" },
+        ],
+      },
+      {
+        title: "3 Days / Week",
+        subtitle: "12 Days / Month",
+        duration: "30 Minutes / Day",
+        price: "$40",
+        badge: "Popular",
+        buttonLabel: "Select Plan",
+        currencyBubbles: [
+          { label: "USD/CAD", value: "$40" },
+          { label: "AUD", value: "$45" },
+          { label: "UK", value: "£25" },
+          { label: "Europe", value: "€25" },
+        ],
+      },
+      {
+        title: "4 Days / Week",
+        subtitle: "16 Days / Month",
+        duration: "30 Minutes / Day",
+        price: "$45",
+        badge: "Advanced",
+        buttonLabel: "Select Plan",
+        currencyBubbles: [
+          { label: "USD/CAD", value: "$45" },
+          { label: "AUD", value: "$50" },
+          { label: "UK", value: "£28" },
+          { label: "Europe", value: "€28" },
+        ],
+      },
+      {
+        title: "5 Days / Week",
+        subtitle: "20 Days / Month",
+        duration: "30 Minutes / Day",
+        price: "$55",
+        badge: "Best Value",
+        buttonLabel: "Select Plan",
+        currencyBubbles: [
+          { label: "USD/CAD", value: "$55" },
+          { label: "AUD", value: "$55" },
+          { label: "UK", value: "£35" },
+          { label: "Europe", value: "€35" },
+        ],
+      },
     ],
-    popular: false,
   },
   {
-    name: "Scholarly",
-    price: "$75",
-    description: "Our most popular immersion for dedicated students.",
-    features: [
-      "4 Classes Per Week",
-      "Priority Scheduling",
-      "Advanced Tajweed & Tafseer",
-      "Direct Scholar Access",
-      "Certified Completion",
-      "Interactive Workshops",
+    heading: "Weekend Special (Saturday & Sunday)",
+    plans: [
+      {
+        title: "Saturday Only",
+        subtitle: "4 Days / Month",
+        duration: "45 Minutes / Day",
+        price: "$35",
+        badge: "Weekend",
+        buttonLabel: "Select Plan",
+        currencyBubbles: [
+          { label: "USD/CAD", value: "$35" },
+          { label: "AUD", value: "$35" },
+          { label: "UK", value: "£20" },
+          { label: "Europe", value: "€20" },
+        ],
+      },
+      {
+        title: "Sunday Only",
+        subtitle: "4 Days / Month",
+        duration: "45 Minutes / Day",
+        price: "$35",
+        badge: "Weekend",
+        buttonLabel: "Select Plan",
+        currencyBubbles: [
+          { label: "USD/CAD", value: "$35" },
+          { label: "AUD", value: "$35" },
+          { label: "UK", value: "£20" },
+          { label: "Europe", value: "€20" },
+        ],
+      },
+      {
+        title: "Saturday + Sunday",
+        subtitle: "8 Days / Month",
+        duration: "45 Minutes / Day",
+        price: "$60",
+        badge: "Working Professionals",
+        buttonLabel: "Select Plan",
+        currencyBubbles: [
+          { label: "USD/CAD", value: "$60" },
+          { label: "AUD", value: "$60" },
+          { label: "UK", value: "£40" },
+          { label: "Europe", value: "€40" },
+        ],
+      },
     ],
-    popular: true,
-  },
-  {
-    name: "Ijazah Path",
-    price: "$120",
-    description: "Advanced certification for mastery of recitation.",
-    features: [
-      "Daily Focused Classes",
-      "Specialized Ijazah Prep",
-      "Direct Sanad Connection",
-      "Unlimited Review Sessions",
-      "Priority Scholar Mentorship",
-    ],
-    popular: false,
   },
 ];
 
 export function PricingGrid() {
   return (
-    <section className="bg-[#fdfae9] py-20 px-5 md:py-32 md:px-10">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 md:grid-cols-3 md:gap-10">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className={`relative flex flex-col p-8 md:p-10 transition-all duration-500 hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-12 ${
-                plan.popular 
-                  ? "border-2 border-[#B8965A] shadow-[0_20px_50px_rgba(184,150,90,0.15)] bg-white/40" 
-                  : "border border-[#0B2C3D]/10 bg-white/20"
-              }`}
-              style={{ 
-                borderRadius: "2.5rem",
-                animationDelay: `${index * 150}ms`
-              }}
-            >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#B8965A] px-6 py-1 rounded-full">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white">
-                    Recommended
-                  </span>
-                </div>
-              )}
-
-              <div className="mb-8">
-                <h3 className="mb-2 text-2xl font-bold text-[#0B2C3D]">
-                  {plan.name}
-                </h3>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-black text-[#0B2C3D]">{plan.price}</span>
-                  <span className="text-[#5F7A8A]">/month</span>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-[#5F7A8A]">
-                  {plan.description}
-                </p>
-              </div>
-
-              <div className="mb-10 flex-grow">
-                <ul className="space-y-4">
-                  {plan.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-start gap-3">
-                      <div className="mt-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#B8965A]/20">
-                        <Check className="h-2.5 w-2.5 text-[#B8965A]" />
-                      </div>
-                      <span className="text-sm font-medium text-[#0B2C3D]/80">
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <Link
-                href="/enroll"
-                className={`flex h-12 items-center justify-center rounded-full text-sm font-bold tracking-[0.15em] transition-all duration-300 ${
-                  plan.popular
-                    ? "bg-[#B8965A] text-white shadow-lg hover:bg-[#a68549] hover:shadow-xl"
-                    : "border-2 border-[#B8965A] text-[#B8965A] hover:bg-[#B8965A] hover:text-white"
-                }`}
-              >
-                ENROLL NOW
-              </Link>
+    <section className="bg-[#fdfae9] py-20 px-5 md:py-28 md:px-10">
+      <div className="mx-auto max-w-7xl space-y-20">
+        {feeSections.map((section, sectionIndex) => (
+          <div key={sectionIndex} className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-semibold tracking-tight text-[#0B2C3D] sm:text-4xl">
+                {section.heading}
+              </h2>
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-[#5F7A8A]">
+                Choose the schedule that fits your week with clear pricing and plan highlights.
+              </p>
             </div>
-          ))}
-        </div>
+
+            <div
+              className={`grid grid-cols-1 gap-6 ${
+                sectionIndex === 0 ? "md:grid-cols-3 lg:grid-cols-5" : "md:grid-cols-3 lg:grid-cols-3"
+              }`}
+            >
+              {section.plans.map((plan, index) => (
+                <article
+                  key={index}
+                  className="flex h-full min-h-[30rem] flex-col overflow-hidden rounded-[2rem] border-2 border-[#B8965A] bg-white/95 shadow-[0_18px_40px_rgba(11,44,61,0.08)] transition-transform duration-300 hover:-translate-y-2"
+                >
+                  <div className="flex h-14 items-center justify-center rounded-t-[1.5rem] bg-[#f3ead8] text-center text-[#0B2C3D] font-semibold text-xl sm:text-2xl">
+                    <h3 className="whitespace-nowrap px-4">
+                      {plan.title}
+                    </h3>
+                  </div>
+                  <div className="flex flex-col flex-grow gap-6 p-8 pb-10">
+                    <div>
+                      <p className="mt-6 text-sm font-semibold uppercase tracking-[0.24em] text-[#0B2C3D]/80">
+                        {plan.subtitle}
+                      </p>
+                    </div>
+
+                    <div className="inline-flex items-center rounded-full border border-[#E0D6BC] bg-[#F8F3E8] px-4 py-2 text-sm font-semibold text-[#0B2C3D]">
+                      {plan.duration}
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="flex items-end gap-2">
+                        <span className="text-4xl font-semibold text-[#B8965A]">{plan.price}</span>
+                        <span className="pb-1 text-sm font-medium text-[#5F7A8A]">/ month</span>
+                      </div>
+
+                      <div className="flex flex-wrap justify-center gap-2">
+                        {plan.currencyBubbles.map((currency, currencyIndex) => (
+                          <span
+                            key={currencyIndex}
+                            className="inline-flex min-w-[90px] items-center justify-center rounded-full border border-[#E9E3D4] bg-[#F7F3EB] px-3 py-2 text-[11px] font-semibold text-[#0B2C3D]"
+                          >
+                            {currency.label}: {currency.value}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-auto">
+                      <Link
+                        href="/enroll"
+                        className="whitespace-nowrap flex h-12 items-center justify-center rounded-full bg-[#B48C4D] px-10 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-[#9b783f]"
+                      >
+                        Enroll Now
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
