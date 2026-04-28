@@ -1,32 +1,3 @@
-import type { Metadata } from "next";
-import { Geist_Mono, Manrope, Noto_Serif, Montserrat } from "next/font/google";
-import "./globals.css";
-import { Toaster } from "sonner";
-import { WhatsAppButton } from "@/components/whatsapp";
-import { SiteHeader } from "@/components/home/site-header";
-import { SiteFooter } from "@/components/home/site-footer";
-
-const bodyFont = Manrope({
-  variable: "--font-brand-body",
-  subsets: ["latin"],
-});
-
-const headingFont = Noto_Serif({
-  variable: "--font-brand-heading",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const fontMontserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
 export const metadata: Metadata = {
   title: {
     default: "Imam Ali Quran Academy | Online Quran Courses with Expert Scholars",
@@ -43,6 +14,12 @@ export const metadata: Metadata = {
     "learn Quran online",
     "Imam Ali Academy",
   ],
+
+  // ✅ THIS IS THE CORRECT PLACE FOR CANONICAL
+  alternates: {
+    canonical: "https://imamaliquranacademy.com",
+  },
+
   openGraph: {
     title: "Imam Ali Quran Academy — Sacred Knowledge Online",
     description:
@@ -60,6 +37,7 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Imam Ali Quran Academy — Learn Quran Online",
@@ -67,28 +45,6 @@ export const metadata: Metadata = {
       "Expert Islamic education at your pace. Tajweed, Tafseer, Islamic History and more.",
     images: ["/images/home/hero.webp"],
   },
+
   robots: { index: true, follow: true },
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html
-      lang="en"
-      className={`${bodyFont.variable} ${headingFont.variable} ${geistMono.variable} ${fontMontserrat.variable} h-full antialiased font-sans`}
-    >
-      <body className="min-h-full flex flex-col">
-        <SiteHeader />
-        <main className="flex-1 flex flex-col">
-          {children}
-        </main>
-        <SiteFooter />
-        <WhatsAppButton />
-        <Toaster richColors position="top-right" />
-      </body>
-    </html>
-  );
-}
